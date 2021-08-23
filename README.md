@@ -4,7 +4,7 @@
 8/23/2021
 
 ### Project Title
-Bikeshare
+Get Bikeshare data
 
 ### Description
 Shows bike rider data for three cities in the US
