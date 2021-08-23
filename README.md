@@ -7,7 +7,7 @@
 Get Bikeshare data
 
 ### Description
-Shows bike rider data for three cities in the US
+Shows bike rider data for three cities in the US - Washington, New York City and Chicago!
 
 ### Files used
 bikeshare.py
