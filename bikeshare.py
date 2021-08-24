@@ -208,13 +208,13 @@ def main():
         city, month, day = get_filters()
         if (check_inputs(city, month, day)):
             df = load_data(city, month, day)
-            i = 5
+            i = 20
             """Will keep displaying the data until user enters no."""
             while(i < df.shape[0]):
                 seeOutput = input(" Do you wish to see the data: Enter yes or no")
                 if(seeOutput == "yes"):
                     print(df.head(i))
-                    i += 5
+                    i += 20
                 else:
                     break
             time_stats(df)
