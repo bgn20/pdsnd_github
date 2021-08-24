@@ -107,6 +107,7 @@ def time_stats(df):
     # display the most common start hour
     commonHour = df['hour'].value_counts().idxmax()
 
+
     if(commonHour > 12):
         commonHour -= 12
         am_or_pm = "PM"
@@ -185,8 +186,6 @@ def user_stats(df):
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
 
-
-
 def check_inputs(city, month, day):
     """Will check for whether all inputs are correct and if not, tells user they have entered wrong input."""
     return check_input("city", city, CITY_DATA) and check_input("month", month, months) and check_input("day", day , days)
@@ -194,10 +193,12 @@ def check_inputs(city, month, day):
 
 def check_input(filterName, filterValue, values):
     """Will check for each filtername and its value to ensure input is correct."""
+
+    if (filterValue == "all"):
+        return True
+
     inputGood = False
     for key in values:
-        if filterValue == "all":
-            return True;
         if key == filterValue.lower():
             return True
     return inputGood
@@ -207,13 +208,13 @@ def main():
         city, month, day = get_filters()
         if (check_inputs(city, month, day)):
             df = load_data(city, month, day)
-            i = 5
+            i = 20
             """Will keep displaying the data until user enters no."""
             while(i < df.shape[0]):
                 seeOutput = input(" Do you wish to see the data: Enter yes or no")
                 if(seeOutput == "yes"):
                     print(df.head(i))
-                    i += 5
+                    i += 20
                 else:
                     break
             time_stats(df)
